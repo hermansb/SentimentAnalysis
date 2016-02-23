@@ -8,7 +8,9 @@ and runs those tweets through a sentiment-analysis module to produce a sentiment
 
 You can play with an instance of the application running at http://simplesentimentanalysis.mybluemix.net/
 
-You can explore the code by clicking into the SimpleSentimentAnalysis folder.
+Deploy this application to Bluemix by clicking the button below:
+
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://hub.jazz.net/git/idsorg/sample-java-cloudant)
 
 ### Get your Twitter keys and plug them into the app
 
@@ -33,7 +35,7 @@ Use npm to get the required modules:
 
 Run the application with node:
 
-    node app.js
+    node app
 
 You should see a confirmation that the application is running on port 3000, 
 and you can access it with your browser at http://localhost:3000.
