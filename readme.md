@@ -6,7 +6,7 @@ Sample application demonstrating how to build a sentiment analysis app usind Nod
 The application takes a keyword or hashtag, connects to Twitter to get a stream of matching tweets, 
 and runs those tweets through a sentiment-analysis module to produce a sentiment score.
 
-You can play with an instance of the application running at http://simplesentimentanalysis.mybluemix.net/
+You can play with an instance of the application running on <a href="http://simplesentimentanalysis.mybluemix.net/" target="_blank">Bluemix</a>.
 
 Deploy this application to Bluemix by clicking the button below:
 
@@ -22,32 +22,9 @@ In order to run the sample, you'll need to paste in your own API keys from Twitt
 
 If you don't replace these, the app will fail to connect to Twitter, and should log an authentication error.
 
-### Running the application on your desktop
-
-Download the source of the application by selecting the SimpleSentimentAnalysis folder and selecting
-"Export as zip" from the Actions menu(![Actions](https://hub.jazz.net/code/images/gear.png)) in the navigator.
-
-Unzip the application in a working directory.
-
-Use npm to get the required modules:
-
-    npm install
-
-Run the application with node:
-
-    node app
-
-You should see a confirmation that the application is running on port 3000, 
-and you can access it with your browser at http://localhost:3000.
-
-### Running the application using a Cloud Foundry PaaS runtime
-
-If you have access to a Cloud Foundry-based runtime, like the Pivotal Cloud Foundry offering or IBM's BlueMix,
-you can also run the application in those environments.
-
 ### To get your own Twitter Application Keys
 
-To get your own Twitter application keys for this project or any others first go to the [Twitter Developer Page](https://apps.twitter.com/app) and click on __Create New App__
+To get your own Twitter application keys for this project or any others first go to the <a href="https://apps.twitter.com/app"  target="_blank">Twitter Developer Page</a> and click on __Create New App__
 
 ![Create New App](public/images/CreateApp.png "Create App")
 
