@@ -10,7 +10,7 @@ You can play with an instance of the application running at http://simplesentime
 
 Deploy this application to Bluemix by clicking the button below:
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/hermansb/SentimentAnalysis.git)
+<a href="https://bluemix.net/deploy?repository=https://github.com/hermansb/SentimentAnalysis.git" target="_blank"><img src="http://bluemix.net/deploy/button.png" alt="Bluemix button" /></a>
 
 ### Get your Twitter keys and plug them into the app
 
