@@ -16,7 +16,7 @@ Deploy this application to Bluemix by clicking the button below:
 
 In order to run the sample, you'll need to paste in your own API keys from Twitter. 
 
-* Go to https://dev.twitter.com/apps, create a new app, generate an API key and an access token.
+* Go to <a href="https://apps.twitter.com/apps/" target="_blank">Twitter Developer Page here</a>, create a new app, generate an API key and an access token.
 * Edit the app.js file, replace the consumer_key and consumer_secret with your application key and secret.
 * Replace the access_token_key and access_token_secret with your access token and access token secret from Twitter.
 
@@ -24,7 +24,7 @@ If you don't replace these, the app will fail to connect to Twitter, and should 
 
 ### To get your own Twitter Application Keys
 
-To get your own Twitter application keys for this project or any others first go to the <a href="https://apps.twitter.com/app"  target="_blank">Twitter Developer Page</a> and click on __Create New App__
+To get your own Twitter application keys for this project or any others first go to the <a href="https://apps.twitter.com/app/" target="_blank">Twitter Developer Page</a> and click on __Create New App__
 
 ![Create New App](public/images/CreateApp.png "Create App")
 
