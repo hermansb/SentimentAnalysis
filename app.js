@@ -29,10 +29,10 @@ app.configure(function() {
 // See instructions HERE:  https://hub.jazz.net/project/srich/Sentiment%20Analysis%20App/overview
 // Look for "To get your own Twitter Application Keys" in the readme.md document
 var tweeter = new twitter({
-    consumer_key: 'your',
-    consumer_secret: 'keys',
-    access_token_key: 'go',
-    access_token_secret: 'here'
+    consumer_key: 'ATsgaOHWl8YseMUyCLt0ZdKK0',
+    consumer_secret: 'lNfHnbS4bh68HRYJNcnRLOCg33AbFFAYVdn3twGwXDcJZs7hAA',
+    access_token_key: '704702721341988865-nhMjBF7jq0XHIUgVLzkx3OnFKK19KmZ',
+    access_token_secret: 'YDodTOKvM4RM11Cw3VNVK7E80VcVyD3dLmNLdTgzIVoWd'
 });
 
 app.get('/twitterCheck', function (req, res) {
