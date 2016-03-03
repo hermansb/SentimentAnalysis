@@ -3,10 +3,10 @@
 ![Ambivalent Smiley](http://simplesentimentanalysis.mybluemix.net/images/content.png "Ambivalent Smiley")
 
 Sample application demonstrating how to build a sentiment analysis app usind Node.js and a couple modules.  
-The application takes a keyword or hashtag, connects to Twitter to get a stream of matching tweets, 
+The application takes a keyword or hashtag, connects to Twitter to get a stream of matching tweets,
 and runs those tweets through a sentiment-analysis module to produce a sentiment score.
 
-You can play with an instance of the application running on <a href="http://simplesentimentanalysis.mybluemix.net/" target="_blank">Bluemix</a>.
+You can <a href="http://simplesentimentanalysis.mybluemix.net/" target="_blank">play with an instance of the application</a> running on Bluemix.
 
 Deploy this application to Bluemix by clicking the button below:
 
@@ -14,7 +14,7 @@ Deploy this application to Bluemix by clicking the button below:
 
 ### Get your Twitter keys and plug them into the app
 
-In order to run the sample, you'll need to paste in your own API keys from Twitter. 
+In order to run the sample, you'll need to paste in your own API keys from Twitter.
 
 * Go to <a href="https://apps.twitter.com/apps/" target="_blank">Twitter Developer Page here</a>, create a new app, generate an API key and an access token.
 * Edit the app.js file, replace the consumer_key and consumer_secret with your application key and secret.
@@ -41,4 +41,3 @@ Originally you will have no application keys, just the API keys.  Press the __Cr
 Use these in the __app.js__ section replacing the default values.
 
 ### Licensed under the EPL (see [license.txt](license.txt))
-
