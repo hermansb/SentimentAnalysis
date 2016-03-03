@@ -2,7 +2,7 @@
 
 ![Ambivalent Smiley](http://simplesentimentanalysis.mybluemix.net/images/content.png "Ambivalent Smiley")
 
-Sample application demonstrating how to build a sentiment analysis app usind Node.js and a couple modules.  
+Sample application demonstrating how to build a sentiment analysis app using Node.js and a couple modules.  
 The application takes a keyword or hashtag, connects to Twitter to get a stream of matching tweets,
 and runs those tweets through a sentiment-analysis module to produce a sentiment score.
 
