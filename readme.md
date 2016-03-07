@@ -4,12 +4,6 @@
 
 You can do lots of cool things when you develop apps on the cloud. We've created this short workshop to let you try working with an app on the cloud.
 
-## Try out a running version of the app
-You can <a href="http://simplesentimentanalysis.mybluemix.net/" target="_blank">play with an instance of the application</a> running on Bluemix. You can analyze the sentiment of any topic you're interested in such as your favorite celebrity, TV show, movie, or a topic in the news.
-
-Technical explanation: The application takes a keyword or hashtag, connects to Twitter to get a stream of matching tweets,
-and runs those tweets through a sentiment-analysis module to produce a sentiment score.
-
 ## Create your own version of the app
 
 1. Deploy this application to Bluemix by clicking the **Deploy to Bluemix** button <a href="https://bluemix.net/deploy?repository=https://github.com/hermansb/SentimentAnalysis.git" target="_blank"><img src="http://bluemix.net/deploy/button.png" alt="Bluemix button" /></a>.
@@ -67,7 +61,7 @@ run the following commands:
 
 To make this workshop as easy as possible, we gave you Twitter keys as part of the source code. Twitter rate limits the calls that you can make to its service based on your API keys. Because several of your groups are using the same set of API keys for this workshop, this might cause the sentiment analysis to slow down.
 
-If you have your own Twitter account with a verified phone number (by using a text message), you can enter your own Twitter keys into your running application. For instructions about using your own keys, skip to the "Get your Twitter keys and add them to your app" section. 
+If you have your own Twitter account with a verified phone number (by using a text message), you can enter your own Twitter keys into your running application. For instructions about using your own keys, skip to the "Get your Twitter keys and add them to your app" section.
 
 **Note**: For security reasons, the API keys that we provided in the source code will be revoked after this workshop is complete.
 
@@ -81,9 +75,9 @@ To run the Sentiment Analysis sample, you need to add your own Twitter API keys.
 2. Edit the app.js file:
 
  a. Replace `consumer_key` and `consumer_secret` with your application key and secret.
- 
- b. Replace `access_token_key` and `access_token_secret` with your access token key and access token secret from Twitter. 
- 
+
+ b. Replace `access_token_key` and `access_token_secret` with your access token key and access token secret from Twitter.
+
  **Tip**: If you don't replace these default values with your own information, the app fails to connect to Twitter and logs an authentication error.
 
 ### Get your own Twitter application keys
