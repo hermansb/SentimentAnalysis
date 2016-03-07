@@ -44,10 +44,13 @@ and runs those tweets through a sentiment-analysis module to produce a sentiment
 
 7.	In the upper-right corner of the window, click **BUILD & DEPLOY** to watch the pipeline deploy the change to your live Bluemix app.
 ![Pipeline button](./readme_images/pipeline_1.png)
+
+8.	After the deployment completes, in the **LAST EXECUTION RESULT** section, click the URL for your app.
 ![Pipeline page](./readme_images/pipeline_2.png)
 
-8.	After the deployment completes, in the **LAST EXECUTION RESULT** section, click the URL for your app. You should see your name in the title of the tab that opens.
+You should see your name in the title of the tab that opens.
 ![My name](./readme_images/tab_title.png)
+
 
 Congratulations! You completed the workshop. Take a well-deserved break, continue making changes to the app, or read the appendices below for future development.
 
