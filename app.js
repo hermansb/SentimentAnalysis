@@ -28,15 +28,47 @@ app.configure(function() {
 // Create your own app at: https://dev.twitter.com/apps
 // See instructions HERE:  https://hub.jazz.net/project/srich/Sentiment%20Analysis%20App/overview
 // Look for "To get your own Twitter Application Keys" in the readme.md document
-var tweeter = new twitter({
-    consumer_key: 'ATsgaOHWl8YseMUyCLt0ZdKK0',
-    consumer_secret: 'lNfHnbS4bh68HRYJNcnRLOCg33AbFFAYVdn3twGwXDcJZs7hAA',
-    access_token_key: '704702721341988865-nhMjBF7jq0XHIUgVLzkx3OnFKK19KmZ',
-    access_token_secret: 'YDodTOKvM4RM11Cw3VNVK7E80VcVyD3dLmNLdTgzIVoWd'
-});
+var keys = [
+  {
+      consumer_key: 'ATsgaOHWl8YseMUyCLt0ZdKK0',
+      consumer_secret: 'lNfHnbS4bh68HRYJNcnRLOCg33AbFFAYVdn3twGwXDcJZs7hAA',
+      access_token_key: '704702721341988865-nhMjBF7jq0XHIUgVLzkx3OnFKK19KmZ',
+      access_token_secret: 'YDodTOKvM4RM11Cw3VNVK7E80VcVyD3dLmNLdTgzIVoWd'
+  },
+  {
+      consumer_key: 'i57UN28xgyIrnjD76AJRk9VDl',
+      consumer_secret: 'mN8MbSyht26kKk2fPuZqxaIL9CpXPineafQzhGaAOubQJbfPZY',
+      access_token_key: '705115581482008576-7Ve2ThO5nmdT1mgu3SQTI4e7UbpUGRg',
+      access_token_secret: 'Xxuv7vgCfBH2J4EwT4BTPTsNUN846Wxri7t3Gb9WZ7P3D'
+  },
+  {
+      consumer_key: 'RFu54Go4kE4zsDspz7QABNmUO',
+      consumer_secret: 'r1QNGZbtH2kl2I0ARk4FiSCRFziF5DjykfkCwa5ZuLBLGNoWSZ',
+      access_token_key: '705110217504264193-JMRhnOc3ccSmlGkHV9okl4sS1r9ssnM',
+      access_token_secret: 'nNxEEMYt59qGz8gKABnIA96Vp0d5ElHioYXavAwMy05v6'
+  },
+  {
+      consumer_key: 'butgdsd1kCPj1ziG1a0JIBREB',
+      consumer_secret: 'nQcdYuV95tBYa23BgFmKlUMMbtHCeph9oJaElJiKuErbyfGUf3',
+      access_token_key: '705057698140672000-53Qo8AxOvndToxlHhOCbcgouaLshcwM',
+      access_token_secret: 'JksMiuz31M2wckglJSMlOPrLSkOJjKHGvT1zLLpwTM0j4'
+  },
+  {
+      consumer_key: 'Kc5XnMicisw1uIUxa3dFPX02o',
+      consumer_secret: 'X1bomTxzNgzMrAYwhBcZJtaH8UyhKktMcdcUEIgLi72wIMjE5S',
+      access_token_key: '706918075132682240-oOCmLoVBctKYAP0BKpqRHpO6WLEG4EY',
+      access_token_secret: 'PdJeg770CFvD8OdQqpfxFGUPnei1IwYN3rrdfmzCUkUjN'
+  }
+];
+
+var tweeters = [];
+
+for (var i=0; i < keys.length; i++) {
+  tweeters.push(new twitter(keys[i]));
+}
 
 app.get('/twitterCheck', function (req, res) {
-    tweeter.verifyCredentials(function (error, data) {
+    tweeters[getRandomKeyIndex()].verifyCredentials(function (error, data) {
         res.send("Hello, " + data.name + ".  I am in your twitters.");
     });
 });
@@ -46,9 +78,9 @@ var tweetTotalSentiment = 0;
 var monitoringPhrase;
 
 app.get('/sentiment', function (req, res) {
-    res.json({monitoring: (monitoringPhrase != null), 
-    	monitoringPhrase: monitoringPhrase, 
-    	tweetCount: tweetCount, 
+    res.json({monitoring: (monitoringPhrase != null),
+    	monitoringPhrase: monitoringPhrase,
+    	tweetCount: tweetCount,
     	tweetTotalSentiment: tweetTotalSentiment,
     	sentimentImageURL: sentimentImage()});
 });
@@ -57,14 +89,18 @@ app.post('/sentiment', function (req, res) {
 	try {
 		if (req.body.phrase) {
 	    	beginMonitoring(req.body.phrase);
-			res.send(200);			
+			res.send(200);
 		} else {
-			res.status(400).send('Invalid request: send {"phrase": "bieber"}');		
+			res.status(400).send('Invalid request: send {"phrase": "bieber"}');
 		}
 	} catch (exception) {
 		res.status(400).send('Invalid request: send {"phrase": "bieber"}');
 	}
 });
+
+function getRandomKeyIndex() {
+  return Math.floor(Math.random() * keys.length);
+}
 
 function resetMonitoring() {
 	if (stream) {
@@ -83,6 +119,9 @@ function beginMonitoring(phrase) {
     monitoringPhrase = phrase;
     tweetCount = 0;
     tweetTotalSentiment = 0;
+    var keyIndex = getRandomKeyIndex();
+    console.log('keyIndex for monitoring: ' + keyIndex);
+    var tweeter = tweeters[keyIndex];
     tweeter.verifyCredentials(function (error, data) {
         if (error) {
         	resetMonitoring();
@@ -101,10 +140,14 @@ function beginMonitoring(phrase) {
                 stream.on('data', function (data) {
                     // only evaluate the sentiment of English-language tweets
                     if (data.lang === 'en') {
+                      console.log('English data received');
                         sentiment(data.text, function (err, result) {
                             tweetCount++;
                             tweetTotalSentiment += result.score;
                         });
+                    }
+                    else {
+                      console.log('Non-English data received');
                     }
                 });
                 stream.on('error', function (error, code) {
@@ -151,7 +194,7 @@ app.get('/',
             "</HEAD>\n" +
             "<BODY>\n" +
             "<P>\n" +
-            "Welcome to the Twitter Sentiment Analysis app.<br>\n" + 
+            "Welcome to the Twitter Sentiment Analysis app.<br>\n" +
             "What would you like to monitor?\n" +
             "</P>\n" +
             "<FORM action=\"/monitor\" method=\"get\">\n" +
@@ -227,6 +270,9 @@ app.get('/watchTwitter', function (req, res) {
     var testTweetCount = 0;
     var phrase = 'bieber';
     // var phrase = 'ice cream';
+    var keyIndex = getRandomKeyIndex();
+    console.log('keyIndex for watchTwitter: ' + keyIndex);
+    var tweeter = tweeters[keyIndex];
     tweeter.verifyCredentials(function (error, data) {
         if (error) {
             res.send("Error connecting to Twitter: " + error);
