@@ -29,7 +29,7 @@ You can do lots of cool things when you develop apps on the cloud. We've created
 3. In the file navigator, which is on the left side of the window, click **app.js** to open the file.
 ![Orion page](./readme_images/orion_1.png)
 
-4. Change lines 150 and 169 to include your names inside the `<title>` and `</title>` tags. For example: `Helen and Colleen's Twitter Sentiment Analysis`.
+4. Change lines 193 and 212 to include your names inside the `<title>` and `</title>` tags. For example: `Helen and Colleen's Twitter Sentiment Analysis`.
 
 5. From the Web IDE menu, which is on the left side of the window, click the Git ![Git icon](./readme_images/git.png) icon.
 
